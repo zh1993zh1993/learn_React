@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let arr=[1,2,3,4,5,6]
+  // 对数组直接进行循环，相当于直接for循环,没有返回值，只能单纯的循环
+  arr.forEach((item,index,arr)=>{
+    console.log('我是item'+'----'+item);
+    console.log('我是index'+'----'+index);
+    console.log('我是arr'+'----'+arr);
+  })
+
+  // map，对数组的每一项进行加工，加工完成后返回一个新的数组
+  let arr2 =['香蕉','苹果','雪梨']
+  let result=arr2.map((item,index,arr)=>{
+    let item1=['猕猴桃']
+    let str=(index+1)+item1+index
+    return str
+  })
+  console.log(result);
+
+  // filter 过滤，将想要的内容进行筛选，不要的内容去除，最终返回想要的内容
+  let arr3=[1,2,3,4,5,6,7,8,9]
+  let  result2 = arr3.filter((item,index)=>{
+    if (item%2==0){
+      // 通过返回true还是false进行选择，true就是想要，false就是去除
+      return true
+    }else {
+      return false
+    }
+  })
+  console.log(result2);
+
+  // reduce 是对整个数组进行整合，比如你要做一个将数组里所有的数字进行相加
+  //将数组每一项内容进行整合后，返回一个内容 逗号后面的0是初始值
+  let arr4=[1,2,3,4,5,6,7,8,9]
+  let result3=arr4.reduce((pre,next,index)=>{
+    console.log('我是pre的输出'+pre);
+    console.log('我是next的输出'+next);
+    console.log('我是index的输出'+index);
+    return pre+next
+  },0)
+  console.log(result3);
+
+//  for...in...主要用于遍历对象，不适用于便利数组,for(key in obj),里面的每一项是key
+//  for...of...可以用来遍历数组，类数组对象，字符串，set/map,generator,
+  //for(let item of arr5)里面的每一项是内容
+
+  let obj={
+    name:'老陈',
+    type:'帅',
+    content:'前端'
+  }
+  // key 是每一项，没有顺序，所以只能遍历对象
+  for(key in obj){
+    console.log('key(每一项)的输出'+key+';value:'+obj[key]);
+  }
+
+  let arr5=['范冰冰','李晨','鹿晗']
+  // for of 循环每一项
+  for(let item of arr5){
+    console.log('for of 的item输出'+item);
+  }
+</script>
+</body>
+</html>
